@@ -5,10 +5,10 @@ document.addEventListener('DOMContentLoaded', function() {
     if (callButton) {
         callButton.addEventListener('click', function() {
             // Initiate a phone call using the tel: URI scheme
-            window.location.href = 'tel:0123456';
+            window.location.href = 'tel:+4974768959987';
             
             // Optional: Add analytics or tracking here if needed
-            console.log('Call initiated to 0123456'); 
+            console.log('Call initiated to +4974768959987'); 
         });
     }
     */
