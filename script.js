@@ -1,9 +1,9 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Original Call Button Logic (commented out as button is now a link)
-    /*
-    const callButton = document.getElementById('call-agent-button');
-    if (callButton) {
-        callButton.addEventListener('click', function() {
+    // Demo Button Call Functionality
+    const demoButton = document.getElementById('demo-button');
+    if (demoButton) {
+        demoButton.addEventListener('click', function(e) {
+            e.preventDefault(); // Prevent default anchor behavior
             // Initiate a phone call using the tel: URI scheme
             window.location.href = 'tel:+4974768959987';
             
@@ -11,7 +11,6 @@ document.addEventListener('DOMContentLoaded', function() {
             console.log('Call initiated to +4974768959987'); 
         });
     }
-    */
 
     // Burger Menu Logic
     const burger = document.querySelector('.burger');
