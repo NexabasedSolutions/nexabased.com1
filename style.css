@@ -102,11 +102,7 @@ nav {
 .burger {
     display: none; /* Hide burger by default */
     cursor: pointer;
-    flex-direction: column;
-    padding: 5px;
-    z-index: 1001;
 }
-
 .burger div {
     width: 25px;
     height: 3px;
@@ -115,18 +111,6 @@ nav {
     transition: all 0.3s ease;
 }
 
-/* Hamburger Animation */
-.burger.toggle .line1 {
-    transform: rotate(-45deg) translate(-5px, 6px);
-}
-
-.burger.toggle .line2 {
-    opacity: 0;
-}
-
-.burger.toggle .line3 {
-    transform: rotate(45deg) translate(-5px, -6px);
-}
 /* Main Content & Sections */
 main {
     max-width: 1100px; /* Match nav max-width */
@@ -429,44 +413,58 @@ footer {
 
 /* Responsive Design */
 @media (max-width: 992px) { /* Adjust breakpoint for nav */
-    .burger {
-        display: flex; /* Zeige Hamburger-Button */
-    }
-    
     .nav-links {
-        position: fixed;
-        right: -100%;
-        top: 70px;
-        flex-direction: column;
-        background-color: white;
-        width: 100%;
-        text-align: center;
-        transition: 0.3s;
-        box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
-        z-index: 1000;
-        padding: 20px 0;
-        height: calc(100vh - 70px);
-    }
-    
-    .nav-links.nav-active {
+        position: absolute;
         right: 0;
+        top: 65px; /* Height of nav bar */
+        background-color: rgba(255, 255, 255, 0.95); /* Match header */
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 60%; /* Adjust width */
+        height: calc(100vh - 65px); /* Full height minus nav */
+        transform: translateX(100%);
+        transition: transform 0.5s ease-in;
+        padding-top: 20px;
+        border-left: 1px solid #d2d2d7;
+        box-shadow: -2px 0 5px rgba(0,0,0,0.05);
     }
 
     .nav-links li {
-        margin: 15px 0;
+        opacity: 0;
+        padding: 20px 0; /* Vertical padding */
         width: 100%;
         text-align: center;
     }
 
     .nav-links li a {
         font-size: 1.1em;
-        padding: 10px 20px;
-        display: block;
     }
 
     .nav-cta {
-        padding: 10px 25px;
+        padding: 10px 25px; /* Adjust padding */
         margin-top: 15px;
+    }
+
+    .burger {
+        display: block; /* Show burger */
+    }
+
+    .nav-active {
+        transform: translateX(0%);
+    }
+
+        /* Burger Animation */
+    .toggle .line1 {
+        transform: rotate(-45deg) translate(-5px, 6px);
+    }
+    .toggle .line2 {
+        opacity: 0;
+    }
+    .toggle .line3 {
+        transform: rotate(45deg) translate(-5px, -6px);
     }
 
     @keyframes navLinkFade {
