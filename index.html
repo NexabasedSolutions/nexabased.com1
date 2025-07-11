@@ -292,7 +292,32 @@ window.addEventListener('load', function() {
         console.log('✅ Demo-Button Integration abgeschlossen');
     }, 1000);
 });
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const burger = document.querySelector('.burger');
+    const navLinks = document.querySelector('.nav-links');
     
+    if (burger && navLinks) {
+        burger.addEventListener('click', function() {
+            navLinks.classList.toggle('nav-active');
+            burger.classList.toggle('toggle');
+        });
+        
+        // Menü schließen bei Link-Klick
+        const navItems = document.querySelectorAll('.nav-links li a');
+        navItems.forEach(item => {
+            item.addEventListener('click', () => {
+                if (navLinks.classList.contains('nav-active')) {
+                    navLinks.classList.remove('nav-active');
+                    burger.classList.remove('toggle');
+                }
+            });
+        });
+    }
+});
+</script>
+</body>
+</html>    
 
 </script>
 </body>
