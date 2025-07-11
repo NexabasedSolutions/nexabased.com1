@@ -292,12 +292,15 @@ window.addEventListener('load', function() {
         console.log('✅ Demo-Button Integration abgeschlossen');
     }, 1000);
 });
-<script>
+
+        <script>
+// Hamburger Menu Aktivierung
 document.addEventListener('DOMContentLoaded', function() {
     const burger = document.querySelector('.burger');
     const navLinks = document.querySelector('.nav-links');
     
     if (burger && navLinks) {
+        // Hamburger-Button Klick
         burger.addEventListener('click', function() {
             navLinks.classList.toggle('nav-active');
             burger.classList.toggle('toggle');
@@ -313,12 +316,19 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             });
         });
+        
+        // Menü schließen bei Außenklick
+        document.addEventListener('click', function(e) {
+            if (!burger.contains(e.target) && !navLinks.contains(e.target) && navLinks.classList.contains('nav-active')) {
+                navLinks.classList.remove('nav-active');
+                burger.classList.remove('toggle');
+            }
+        });
     }
 });
 </script>
 </body>
-</html>    
-
+</html>
 </script>
 </body>
 </html>
