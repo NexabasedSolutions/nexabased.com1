@@ -103,6 +103,7 @@ nav {
     display: none; /* Hide burger by default */
     cursor: pointer;
 }
+
 .burger div {
     width: 25px;
     height: 3px;
@@ -456,17 +457,6 @@ footer {
         transform: translateX(0%);
     }
 
-        /* Burger Animation */
-    .toggle .line1 {
-        transform: rotate(-45deg) translate(-5px, 6px);
-    }
-    .toggle .line2 {
-        opacity: 0;
-    }
-    .toggle .line3 {
-        transform: rotate(45deg) translate(-5px, -6px);
-    }
-
     @keyframes navLinkFade {
         from {
             opacity: 0;
@@ -478,6 +468,17 @@ footer {
         }
     }
 
+    /* Burger Animation */
+    .toggle .line1 {
+        transform: rotate(-45deg) translate(-5px, 6px);
+    }
+    .toggle .line2 {
+        opacity: 0;
+    }
+    .toggle .line3 {
+        transform: rotate(45deg) translate(-5px, -6px);
+    }
+}
 
 @media (max-width: 768px) {
     main {
