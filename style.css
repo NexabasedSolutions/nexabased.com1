@@ -1355,7 +1355,7 @@ footer {
         width: 45px;
     }
 }
-/* HAMBURGER MENÜ FIX - Höchste Priorität */
+/* HAMBURGER MENÜ FIXX - Höchste Priorität */
 @media screen and (max-width: 992px) {
     /* Hamburger Button sichtbar machen */
     .burger {
