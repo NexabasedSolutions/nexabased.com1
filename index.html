@@ -326,6 +326,80 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+        <script>
+// Hamburger Menu - Vollständige Lösung
+document.addEventListener('DOMContentLoaded', function() {
+    const burger = document.querySelector('.burger');
+    const navLinks = document.querySelector('.nav-links');
+    const body = document.body;
+    
+    if (burger && navLinks) {
+        // Hamburger-Button Klick
+        burger.addEventListener('click', function() {
+            // Toggle Klassen
+            navLinks.classList.toggle('nav-active');
+            burger.classList.toggle('toggle');
+            body.classList.toggle('nav-open');
+            
+            // Fallback: Direkte Style-Manipulation
+            if (navLinks.classList.contains('nav-active')) {
+                navLinks.style.right = '0';
+                navLinks.style.position = 'fixed';
+                navLinks.style.top = '70px';
+                navLinks.style.width = '100%';
+                navLinks.style.height = 'calc(100vh - 70px)';
+                navLinks.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
+                navLinks.style.zIndex = '1000';
+                navLinks.style.flexDirection = 'column';
+                navLinks.style.justifyContent = 'flex-start';
+                navLinks.style.alignItems = 'center';
+                navLinks.style.padding = '20px 0';
+                console.log('📱 Menü geöffnet');
+            } else {
+                navLinks.style.right = '-100%';
+                console.log('❌ Menü geschlossen');
+            }
+        });
+        
+        // Menü schließen bei Link-Klick
+        const navItems = document.querySelectorAll('.nav-links li a');
+        navItems.forEach(item => {
+            item.addEventListener('click', () => {
+                if (navLinks.classList.contains('nav-active')) {
+                    navLinks.classList.remove('nav-active');
+                    burger.classList.remove('toggle');
+                    body.classList.remove('nav-open');
+                    navLinks.style.right = '-100%';
+                }
+            });
+        });
+        
+        // Menü schließen bei Außenklick
+        document.addEventListener('click', function(e) {
+            if (!burger.contains(e.target) && !navLinks.contains(e.target) && navLinks.classList.contains('nav-active')) {
+                navLinks.classList.remove('nav-active');
+                burger.classList.remove('toggle');
+                body.classList.remove('nav-open');
+                navLinks.style.right = '-100%';
+            }
+        });
+        
+        // Menü schließen bei Escape-Taste
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && navLinks.classList.contains('nav-active')) {
+                navLinks.classList.remove('nav-active');
+                burger.classList.remove('toggle');
+                body.classList.remove('nav-open');
+                navLinks.style.right = '-100%';
+            }
+        });
+        
+        console.log('🍔 Hamburger-Menü vollständig initialisiert');
+    } else {
+        console.error('❌ Hamburger-Button oder Navigation nicht gefunden');
+    }
+});
+</script>
 </script>
 </body>
 </html>
